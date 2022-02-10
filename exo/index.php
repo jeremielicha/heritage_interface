@@ -5,28 +5,38 @@ include "SportRelais.php";
 include "SportBallon.php";
 include "Comparable.php";
 include "Club.php";
-    echo "Projet heritage et interface"."<br><br>";
 
-$listClub[1]=new Club(1, "club1", 120);
-$listClub[1]=new Club(2, "club2", 110);
-$listClub[1]=new Club(3, "club3", 80);
+$listClub[] = new Club(1,"Dijon 63",0);
+$listClub[] = new Club(2,"PDG 67",547);
+$listClub[] = new Club(3,"Nantes 65",239);
 
-$listClub[1]->AjouterSport($listSport[] =new Sport("Football", 23));
-$listClub[1]->AjouterSport($listSport[]=new SportRelais("nomSportRelais1", 15, 456));
+$listClub[0]->AjouterSport($listSport[] = new SportRelais("nomRelais1", 31, 200));
+$listClub[0]->AjouterSport($listSport[] = new Sport("Football ",11));
+$listClub[0]->AjouterSport($listSport[] = new Sport("eSport ",10));
+$listClub[0]->AjouterSport($listSport[] = new Sport("Braquage ",4));
 
-$listClub[2]->AjouterSport($listSport[]=new SportBallon("nomSportBallon1", 154, 2000, 50));
-$listClub[2]->AjouterSport($listSport[]=new SportRelais("nomSportRelais2", 155, 1000));
+$listClub[1]->AjouterSport($listSport[] = new SportRelais("4100 ",1,400));
+$listClub[1]->AjouterSport($listSport[] = new SportRelais("100m ",1,100));
+$listClub[1]->AjouterSport($listSport[] = new SportRelais("200m ",1,200));
 
-$listSport[] =new Sport("Football", 23);
-$listSport[] =new Sport("Basket", 12);
-$listSport[] =new Sport("HandBall", 11);
-$listSport[]=new SportRelais("nomSportRelais1", 15, 456);
-$listSport[]=new SportRelais("nomSportRelais2", 155, 1000);
-$listSport[]=new SportRelais("nomSportRelais3", 100, 1500);
-$listSport[]=new SportBallon("nomSportBallon1", 154, 2000, 50);
-$listSport[]=new SportBallon("nomSportBallon2", 25, 350, 4000);
+$listClub[2]->AjouterSport($listSport[] = new SportRelais("Course poursuite ",2,700));
+$listClub[2]->AjouterSport($listSport[] = new SportBallon("Handball ",8,40,50));
+$listClub[2]->AjouterSport($listSport[] = new SportBallon("Handball ",8,40,50));
 
-foreach ($listSport as $keyListSport=>$valueListSport)
+foreach ($listClub as $keyListClub => $valueListClub)
+    {
+        echo '<a href="index.php">Club : </a>'.$valueListClub->getNomClub()."<br><br>";
+    }
+
+
+if(!(empty($_POST[""])))
 {
-    echo $valueListSport->getDescription()."<br><br>";
+    if($_POST["idClub"] == "1")
+    {
+        echo "Welcome comp";
+    }
+    else
+    {
+        echo "Wrong user";
+    }
 }
