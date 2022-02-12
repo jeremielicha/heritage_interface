@@ -22,6 +22,7 @@ $listClub[2]->AjouterSport($listSport[] = new SportRelais("Course poursuite",2,7
 $listClub[2]->AjouterSport($listSport[] = new SportBallon("Handball",8,40,50));
 $listClub[2]->AjouterSport($listSport[] = new SportBallon("Badminton",8,40,50));
 ?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -32,24 +33,33 @@ $listClub[2]->AjouterSport($listSport[] = new SportBallon("Badminton",8,40,50));
     <title>Heritage et Interface</title>
 </head>
 <body>
-    <center>
-        <?php
-            foreach ($listClub as $keyListClub => $club)
-            {
-                echo "<a href=index.php?club={$keyListClub}>{$club->getNomClub()}</a><br><br>";
-            }
+    <?php
+        foreach ($listClub as $keyListClub => $club)
+        {
+            echo "<a href=index.php?club={$keyListClub}>{$club->getIdClub()}"." : "."{$club->getNomClub()}</a><br><br>";
+        }
 
-            //On verifie si club existe dans l'url
-            if(isset($_GET["club"]))
+        echo "<a href=index.php?sports>Liste de tout sports</a>";
+        echo "<br><br>";
+
+        //On verifie si club existe dans l'url
+        if(isset($_GET["club"]))
+        {
+            //parcours les sports du club cliqué
+            foreach ($listClub[$_GET["club"]]->getLesSports() as $keySport=>$sport)
             {
-                //parcours les sports du club cliqué
-                foreach ($listClub[$_GET["club"]]->getLesSports() as $keySport=>$sport)
-                {
-                    echo $listClub[$_GET["club"]]->getNomClub()."<br><br>";
-                    echo $sport->getDescription();
-                }
+                echo $listClub[$_GET["club"]]->getNomClub()."<br><br>";
+                echo $sport->getDescription();
             }
-        ?>
-    </center>
+        }
+        else if(isset($_GET["sports"]))
+        {
+            echo "Tous les sports :"."<br><br>";
+            foreach ($listSport as $keyListSport=>$sport)
+            {
+                echo $sport->getDescription()."<br><br>";
+            }
+        }
+    ?>
 </body>
 </html>
