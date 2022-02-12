@@ -69,6 +69,14 @@ class Club implements Comparable
     }
 
     /**
+     * @return array
+     */
+    public function getLesSports(): array
+    {
+        return $this->lesSports;
+    }
+
+    /**
      * @param array $lesSports
      */
     public function setLesSports(array $lesSports): void
@@ -78,7 +86,7 @@ class Club implements Comparable
 
     public function AjouterSport(Sport $sport)
     {
-        $this->lesSports=$sport;
+        $this->lesSports[]=$sport;
     }
 
     public function compareTo(Club $club)
