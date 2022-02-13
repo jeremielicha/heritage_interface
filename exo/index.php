@@ -34,32 +34,38 @@ $listClub[2]->AjouterSport($listSport[] = new SportBallon("Badminton",8,40,50));
 </head>
 <body>
     <?php
+        echo "<center>";
+        echo "<fieldset>";
+        echo "<legend><h1>Liste des clubs</h1></legend>";
         foreach ($listClub as $keyListClub => $club)
         {
             echo "<a href=index.php?club={$keyListClub}>{$club->getIdClub()}"." : "."{$club->getNomClub()}</a><br><br>";
         }
 
         echo "<a href=index.php?sports>Liste de tout sports</a>";
-        echo "<br><br>";
+        echo "</fieldset>";
 
         //On verifie si club existe dans l'url
+        echo "<fieldset>";
         if(isset($_GET["club"]))
         {
             //parcours les sports du club cliqué
+            echo "<legend><h1>".$listClub[$_GET["club"]]->getNomClub()."</h1></legend>";
             foreach ($listClub[$_GET["club"]]->getLesSports() as $keySport=>$sport)
             {
-                echo $listClub[$_GET["club"]]->getNomClub()."<br><br>";
-                echo $sport->getDescription();
+                echo $sport->getDescription()."<br><br>";
             }
         }
         else if(isset($_GET["sports"]))
         {
-            echo "Tous les sports :"."<br><br>";
+            echo "<legend><h1>"."Tous les sports"."</h1></legend>";
             foreach ($listSport as $keyListSport=>$sport)
             {
                 echo $sport->getDescription()."<br><br>";
             }
         }
+        echo "</fieldset>";
+        echo "</center>";
     ?>
 </body>
 </html>
