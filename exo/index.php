@@ -38,6 +38,7 @@ $listClub[2]->AjouterSport($listSport[] = new SportBallon("Badminton",8,40,50));
         echo "<legend><h1>Liste des clubs</h1></legend>";
         foreach ($listClub as $keyListClub => $club)
         {
+            //Methode d'interpolation
             echo "<a href=index.php?club={$keyListClub}>{$club->getIdClub()}"." : "."{$club->getNomClub()}</a><br><br>";
         }
 
