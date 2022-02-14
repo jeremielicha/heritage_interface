@@ -34,7 +34,6 @@ $listClub[2]->AjouterSport($listSport[] = new SportBallon("Badminton",8,40,50));
 </head>
 <body>
     <?php
-        echo "<center>";
         echo "<fieldset>";
         echo "<legend><h1>Liste des clubs</h1></legend>";
         foreach ($listClub as $keyListClub => $club)
@@ -65,7 +64,6 @@ $listClub[2]->AjouterSport($listSport[] = new SportBallon("Badminton",8,40,50));
             }
         }
         echo "</fieldset>";
-        echo "</center>";
     ?>
 </body>
 </html>
