@@ -34,6 +34,7 @@ $listClub[2]->AjouterSport($listSport[] = new SportBallon("Badminton",8,40,50));
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Heritage et Interface</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <?php
@@ -44,9 +45,22 @@ $listClub[2]->AjouterSport($listSport[] = new SportBallon("Badminton",8,40,50));
             //Methode d'interpolation
             echo "<a href=result.php?club={$keyListClub}>{$club->getIdClub()}"." : "."{$club->getNomClub()}</a><br><br>";
         }
-
-        echo "<a href=result.php?sports>Liste de tout sports</a>";
-        echo "</fieldset>";
     ?>
+
+    <a href=result.php?sports>Liste de tout sports</a>
+    </fieldset>
+    <br>
+    <form method='post' name='formIdClub' action='result.php'>
+        <select name="clubs" id="club-select">
+            <?php
+            foreach ($listClub as $keyClub=>$club)
+            {
+                echo "<option value={$keyClub}>{$club->getNomClub()}</option>";
+            }
+            ?>
+        </select>
+        <br><br>
+        <button type='submit'>Envoie</button>
+    </form>
 </body>
 </html>

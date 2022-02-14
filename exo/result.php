@@ -41,6 +41,5 @@ else if(isset($_GET["sports"]))
 echo '<a href="index.php">Retour</a>';
 echo "</fieldset>";
 ?>
-
 </body>
 </html>

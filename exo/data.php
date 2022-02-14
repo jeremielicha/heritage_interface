@@ -1,6 +1,6 @@
 <?php
 $listClub[] = new Club(1,"Dijon 63",0);
-$listClub[] = new Club(2,"PDG 67",547);
+$listClub[] = new Club(2,"PSG 67",547);
 $listClub[] = new Club(3,"Nantes 65",239);
 
 $listClub[0]->AjouterSport($listSport[] = new SportRelais("nomRelais1", 31, 200));
