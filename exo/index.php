@@ -46,12 +46,10 @@ $listClub[2]->AjouterSport($listSport[] = new SportBallon("Badminton",8,40,50));
             echo "<a href=result.php?club={$keyListClub}>{$club->getIdClub()}"." : "."{$club->getNomClub()}</a><br><br>";
         }
     ?>
-
-    <a href=result.php?sports>Liste de tout sports</a>
     </fieldset>
     <br>
     <form method='post' name='formIdClub' action='result.php'>
-        <select name="clubs" id="club-select">
+        <select name="club" id="club-select">
             <?php
             foreach ($listClub as $keyClub=>$club)
             {

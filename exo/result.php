@@ -21,19 +21,17 @@ include "data.php";
 <?php
 echo "<fieldset>";
 //On verifie si club existe dans l'url
-if(isset($_GET["club"]))
+if(isset($_GET["club"]) || isset($_POST["club"]))
 {
-    //parcours les sports du club cliqué
-    echo "<legend><h1>".$listClub[$_GET["club"]]->getNomClub()."</h1></legend>";
-    foreach ($listClub[$_GET["club"]]->getLesSports() as $keySport=>$sport)
-    {
-        echo $sport->getDescription()."<br><br>";
+    if (isset($_GET['club'])){
+        $idClub = $_GET['club'];
     }
-}
-else if(isset($_GET["sports"]))
-{
-    echo "<legend><h1>"."Tous les sports"."</h1></legend>";
-    foreach ($listSport as $keyListSport=>$sport)
+    else{
+        $idClub = $_POST['club'];
+    }
+    //parcours les sports du club cliqué
+    echo "<legend><h1>".$listClub[$idClub]->getNomClub()."</h1></legend>";
+    foreach ($listClub[$idClub]->getLesSports() as $keySport=>$sport)
     {
         echo $sport->getDescription()."<br><br>";
     }
