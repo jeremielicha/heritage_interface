@@ -23,10 +23,12 @@ echo "<fieldset>";
 //On verifie si club existe dans l'url
 if(isset($_GET["club"]) || isset($_POST["club"]))
 {
-    if (isset($_GET['club'])){
+    if (isset($_GET['club']))
+    {
         $idClub = $_GET['club'];
     }
-    else{
+    else if(isset($_POST['club']))
+    {
         $idClub = $_POST['club'];
     }
     //parcours les sports du club cliqué
